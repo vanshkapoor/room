@@ -23,7 +23,9 @@
   width: 60px;
   box-shadow: 1px 0px 1px 0px rgba(0,0,0,0.1);
 }
-
+.links{
+  transition:0.3s
+}
 #myBtn:hover {
   background-color:grey;
 }
@@ -112,14 +114,14 @@ hr{
   
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <a href="#head" class="links">classes</a>
+      <a href="#classes" class="links">current class</a>
+      <a href="#subjects" class="links">Teachers</a>
+      <a href="https://vanshkapoor.github.io/" target="_blank" class="links">Contact</a>
   </div>
   
   
-  <div class="head mt-4 mb-2">
+  <div class="head mt-4 mb-2" id="head">
     <div class="container">
       <span style="float:left ; font-size:30px ; cursor:pointer" onclick="openNav()">&#9776;</span>
       <h2 class="text-center">ClassRoom Locator</h2>
@@ -182,7 +184,7 @@ hr{
 <hr>
 
 
-<div class="subjects">
+<div class="subjects" id="subjects">
   <div class="container">
     <h3 class="text-center mx-auto pb-5">Subjects & Teachers</h3>
 
@@ -244,11 +246,21 @@ hr{
                 </div>
             </div>
         </div>
+
       </div>
     </div>
 
   </div>
 </div>
+
+<div>
+    <div class="foot">
+        <div class="container h-100 text-center">
+            <p>Made with <i class="fas fa-heart" onclick="egg()"></i> by <strong>CSE evening 2017-21</strong></p>
+        </div>
+    </div>
+</div>
+
 
 <script>
 
@@ -267,6 +279,26 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+$(document).ready(function(){
+	 $('[data-toggle="popover"]').popover();
+
+	 $(".link").on('click', function(event) {
+	    //hash is not empty
+	    if (this.hash !== "") {
+	      event.preventDefault();
+	      // Store hash
+	      var hash = this.hash;
+
+	      $('html, body').animate({
+	        scrollTop: $(hash).offset().top
+	      }, slow, function(){
+	   
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } 
+	  });
+	});
 
 
 
@@ -310,20 +342,33 @@ function topFunction() {
 function getClass(room = getRoom()){
   console.log(room);
   var classroom = [];
+
   var rm =  document.getElementById("rooms");
   while(rm.firstChild){
     rm.removeChild(rm.firstChild);
   }
+
   if(typeof(room) == "number"){
 
     var div = document.createElement('div');
-    div.textContent = "kitna padhoge ..Bss bhi krdo ab";
+    div.textContent = "Bss bhi krdo ab";
     div.setAttribute('class', 'room');
     document.getElementById("rooms").appendChild(div);
     document.getElementById("classes").style.visibility = 'visible';
 
   }
   else{
+    if(typeof(room) == "string")
+    {
+      var div = document.createElement('div');
+      div.textContent = room;
+      div.setAttribute('class', 'room');
+      document.getElementById("rooms").appendChild(div);
+      document.getElementById("classes").style.visibility = 'visible';
+
+    }
+    else
+    {
       for(i =0;i<room.length;i++){
         var div = document.createElement('div');
         div.textContent = room[i];
@@ -332,6 +377,8 @@ function getClass(room = getRoom()){
         document.getElementById("classes").style.visibility = 'visible';
 
       }
+    }
+
   }
   console.log(classroom);
 }  
@@ -343,6 +390,10 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+function egg() {
+            alert("So you found the easter egg..love you a lot for looking at this site");
+        }
 </script>
 
 
