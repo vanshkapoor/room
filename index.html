@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>ClassRoom Locator</title>
+<style>
+  
+  
+  .cb{
+    width: 30%
+  }
+ 
+hr{
+  width: 50%;
+
+}
+.subjects{
+  height: 300px;
+}
+.room{
+    background-color: black;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 30vw;
+    height: 10vh;
+    margin-bottom: 5px;
+    padding: 2%;
+    font-size: 3vh;
+}
+#classes{
+  visibility: hidden
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.subjects{
+  height: 500px
+}
+
+</style>
+</head>
+<body>
+  <div class="head mt-4 mb-2">
+    <div class="container">
+      <h2 class="text-center">ClassRoom Locator</h2>
+    <p class=" text-center mt-4 mb-3">for CSE evening 2nd year</p>
+    </div>
+  </div>
+
+
+<div class="container mb-5">
+  <div class="form-group">
+      <label for="day">DAY OF THE WEEK</label>
+      <select class="form-control" id="day">
+          <option value="0">Monday</option>
+          <option value="1">Tuesday</option>
+          <option value="2">Wednesday</option>
+          <option value="3">Thursday</option>
+          <option value="4">Friday</option>
+      </select>
+  </div>
+  
+  <div class="form-group">
+      <label for="time">TIME</label>
+      <select class="form-control" id="time">
+          <option value="0">10:30</option>
+          <option value="1">11:25</option>
+          <option value="2">12:20</option>
+          <option value="3">12:50</option>
+          <option value="4">1:45</option>
+          <option value="5">2:40</option>
+          <option value="6">3:35</option>
+          <option value="7">4:40</option>
+          <option value="8">5:35</option>
+      </select>
+  </div>
+
+ 
+  <div class="text-right">
+      <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb" onclick="getClass()">Get Class</button>
+  </div>
+</div>
+<div id="classes">
+    <div class="container">
+      <div class="row">
+          <div class="mx-auto " id="rooms">
+              <!-- classes will be added here -->
+          </div>      
+      </div>
+    </div>
+  </div>
+<hr>
+
+<div class="current mt-5 mb-5">
+  <div class="container">
+    <h3 class=" text-center">Current Class</h3>
+    <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb">Current Class</button>
+  </div>
+</div>
+
+
+
+
+<div class="subjects">
+  <div class="container">
+    <h3 class="text-center mx-auto pb-5">Subjects & Teachers</h3>
+
+    <div class="cards">
+      <div class="row">
+        
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3 ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">Applied maths-4</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Dr. Mukta Garg </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3 ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">COA</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Mr. Rajat Gupta </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3 ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">DBMS</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Mr. Varun Srivastav </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3  ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">TOC</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Miss Sakshi ma'am </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3  ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">OOPS</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Dr. Amrit </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3  ">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">Communication System</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Miss sakshi  </h6>
+                  <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+  function getRoom(){
+
+    var classes = [
+    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["T1 Maths A107","T2 COA C104"],0,
+    "TOC B101",
+    "CS B101",
+     0],
+    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["T1 Maths A107","T2 COA C104"],
+    "TOC B101",
+    "CS B101",
+     0],
+    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["T1 Maths A107","T2 COA C104"],
+    "TOC B101",
+    "CS B101",
+     0],
+    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["T1 Maths A107","T2 COA C104"],
+    "TOC B101",
+    "CS B101",
+     0],
+    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["T1 Maths A107","T2 COA C104"],
+    "TOC B101",
+    "CS B101",
+     0],
+    ];
+
+    var day = document.getElementById('day').value;
+    var time = document.getElementById('time').value;
+
+    var cls = classes[day][time];
+    return cls;
+
+  }
+function getClass(room = getRoom()){
+  console.log(room);
+  var classroom = [];
+  var rm =  document.getElementById("rooms");
+  while(rm.firstChild){
+    rm.removeChild(rm.firstChild);
+  }
+  if(typeof(room) == "number"){
+
+    var div = document.createElement('div');
+    div.textContent = "kitna padhoge ..Bss bhi krdo ab";
+    div.setAttribute('class', 'room');
+    document.getElementById("rooms").appendChild(div);
+    document.getElementById("classes").style.visibility = 'visible';
+
+  }
+  else{
+      for(i =0;i<room.length;i++){
+        var div = document.createElement('div');
+        div.textContent = room[i];
+        div.setAttribute('class', 'room');
+        document.getElementById("rooms").appendChild(div);
+        document.getElementById("classes").style.visibility = 'visible';
+
+      }
+  }
+  console.log(classroom);
+}  
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
