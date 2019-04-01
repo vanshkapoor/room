@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>ClassRoom Locator</title>
@@ -37,9 +38,6 @@
 hr{
   width: 50%;
 
-}
-.subjects{
-  height: 300px;
 }
 .room{
     background-color: black;
@@ -237,7 +235,7 @@ hr{
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3  ">
+        <div class="col-lg-4 col-sm-6 col-xs-12 mt-3 mb-5  ">
             <div class="card" style="width: 100%;">
                 <div class="card-body">
                   <h5 class="card-title">Communication System</h5>
@@ -291,7 +289,7 @@ $(document).ready(function(){
 
 	      $('html, body').animate({
 	        scrollTop: $(hash).offset().top
-	      }, slow, function(){
+	      }, 800, function(){
 	   
 	        // Add hash (#) to URL when done scrolling (default click behavior)
 	        window.location.hash = hash;
