@@ -4,11 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>ClassRoom Locator</title>
 <style>
   
-  
+  #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  background-color:white;
+  padding: 15px;
+  border-radius: 50%;
+  transition:0.3s;
+  width: 60px;
+  box-shadow: 1px 0px 1px 0px rgba(0,0,0,0.1);
+}
+
+#myBtn:hover {
+  background-color:grey;
+}
+
   .cb{
     width: 30%
   }
@@ -86,7 +105,11 @@ hr{
 </style>
 </head>
 <body>
-
+  
+  <button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i class="fas fa-angle-up"></i>
+  </button>
+  
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#">About</a>
@@ -150,12 +173,13 @@ hr{
 
 <div class="current mt-5 mb-5">
   <div class="container">
-    <h3 class=" text-center">Current Class</h3>
+    <h3 class=" text-center mb-4">Current Class</h3>
     <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb">Current Class</button>
+    <p class="text-center mt-5">feature will be added soon</p>
   </div>
 </div>
 
-
+<hr>
 
 
 <div class="subjects">
@@ -227,6 +251,24 @@ hr{
 </div>
 
 <script>
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+
 
   function getRoom(){
 
