@@ -301,31 +301,50 @@ $(document).ready(function(){
   function getRoom(){
 
     var classes = [
-    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
-    ["T1 Maths A107","T2 COA C104"],0,
+    [
+    ["P1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["P1 DBMS A102","P2 OOPS C103","P3 COA A107"],0,
+    ["T1 Maths A107","T2 COA C104"],"OOPS",
     "TOC B101",
     "CS B101",
+     0,
      0],
-    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
-    ["T1 Maths A107","T2 COA C104"],
+    [
+    ["P1 COA A107","P2 DBMS A102","P3 Maths C102"],
+    ["P1 COA A107","P2 DBMS A102","P3 Maths C102"],0,
+    ["T1 COA C104","T2 DBMS A302"],
+    "DBMS B101",
     "TOC B101",
-    "CS B101",
+    "Maths B101",
+    "COA B101",
      0],
-    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
-    ["T1 Maths A107","T2 COA C104"],
+
+    [0,
+    "DBMS B101",0,
+    ["P1 Maths C102","P2 CS C302","P3 DBMS A102"],
+    ["P1 Maths C102","P2 CS C302","P3 DBMS A102"],
+    "CS B101",
+    "COA B101",
+    "OOPS B101"
+    ["T1 CS B101","T2 TOC B102"],
+     ],
+
+    [0,"DBMS B204",0,
+    ["T1 DBMS A202","T2 CS A206"],
+    "CS B101",
     "TOC B101",
-    "CS B101",
-     0],
-    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
-    ["T1 Maths A107","T2 COA C104"],
-    "TOC B101",
-    "CS B101",
-     0],
-    [["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
-    ["T1 Maths A107","T2 COA C104"],
-    "TOC B101",
-    "CS B101",
-     0],
+    "Maths B101",
+    ["P1 CS C302","P2 COA A107","P3 OOPS C103"],
+    ["P1 CS C302","P2 COA A107","P3 OOPS C103"],
+     ],
+
+    [
+    0,0,0,
+    ["T1 TOC A102","T2 Maths A103"],"Maths D101",
+    "COA B101","OOPS B101",
+    ["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ["p1 DBMS A102","P2 OOPS C103","P3 COA A107"],
+    ]
     ];
 
     var day = document.getElementById('day').value;
