@@ -172,8 +172,18 @@ hr{
 <div class="current mt-5 mb-5">
   <div class="container">
     <h3 class=" text-center mb-4">Current Class</h3>
-    <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb">Current Class</button>
-    <p class="text-center mt-5">feature will be added soon</p>
+    <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb" onclick="currentclass()">Current Class</button>
+    
+    <div id="classes">
+      <div class="container">
+        <div class="row">
+            <div class="mx-auto " id="getroom">
+                <!-- classes will be added here -->
+            </div>      
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -259,48 +269,7 @@ hr{
 
 
 <script>
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-$(document).ready(function(){
-	 $('[data-toggle="popover"]').popover();
-
-	 $(".link").on('click', function(event) {
-	    //hash is not empty
-	    if (this.hash !== "") {
-	      event.preventDefault();
-	      // Store hash
-	      var hash = this.hash;
-
-	      $('html, body').animate({
-	        scrollTop: $(hash).offset().top
-	      }, 800, function(){
-	   
-	        // Add hash (#) to URL when done scrolling (default click behavior)
-	        window.location.hash = hash;
-	      });
-	    } 
-	  });
-	});
-
-
-
-  function getRoom(){
-
-    var classes = [
+  var classes = [
     [
     ["P1 DBMS A102","P2 OOPS C103","P3 COA A107"],
     ["P1 DBMS A102","P2 OOPS C103","P3 COA A107"],0,
@@ -347,6 +316,47 @@ $(document).ready(function(){
     ]
     ];
 
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+$(document).ready(function(){
+	 $('[data-toggle="popover"]').popover();
+
+	 $(".link").on('click', function(event) {
+	    //hash is not empty
+	    if (this.hash !== "") {
+	      event.preventDefault();
+	      // Store hash
+	      var hash = this.hash;
+
+	      $('html, body').animate({
+	        scrollTop: $(hash).offset().top
+	      }, 800, function(){
+	   
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } 
+	  });
+	});
+
+
+
+  function getRoom(){
+
+ 
     var day = document.getElementById('day').value;
     var time = document.getElementById('time').value;
 
@@ -409,6 +419,37 @@ function closeNav() {
 function egg() {
             alert("So you found the easter egg..love you a lot for looking at this site");
         }
+
+function currentclass(){
+    var cls=[];
+    var x = new Date(); 
+    var day = x.getDay()-1;
+    var time = x.getHours() -10;
+
+    var cls = classes[day][time];
+    return cls;
+
+}
+
+function getcurrentclass(room = currentclass())
+{
+
+  var grm = document.getElementById('getroom');
+  while(grm.firstChild){
+    grm.removeChild(grm.firstChild);
+  }
+
+  var div = document.createElement('div');
+  div.textContent= room;
+  div.setAttribute('class', 'room');
+  document.getElementById("getroom").appendChild(div);
+  document.getElementById("classes").style.visibility = 'visible';
+
+}
+
+
+
+
 </script>
 
 
