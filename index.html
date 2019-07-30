@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"
+      integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E"
+      crossorigin="anonymous"
+    />
   <title>ClassRoom Locator</title>
 <style>
   
@@ -22,6 +27,9 @@
   border-radius: 50%;
   transition:0.3s;
   width: 60px;
+  border: none;
+  background: #101010;
+  color: white;
   box-shadow: 1px 0px 1px 0px rgba(0,0,0,0.1);
 }
 .links{
@@ -32,7 +40,8 @@
 }
 
   .cb{
-    width: 30%
+    width: 30%;
+    border:2px solid #101010
   }
  
 hr{
@@ -40,9 +49,9 @@ hr{
 
 }
 .room{
-    background-color: black;
+    background-color: #101010;
     color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(19, 251, 154, 0.2);
     width: 30vw;
     height: 10vh;
     margin-bottom: 5px;
@@ -60,6 +69,28 @@ hr{
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.revert{
+  background: black;
+  color: white;
+  transition: 0.3s
+}
+.inputrevert{
+    background: #101010;
+    border: none;
+    color: white;
+}
+.roomrevert{
+    background: #101010;
+    border: aqua;
+    color: aqua;
+    box-shadow: 0 8px 16px 0 rgba(19, 251, 154, 0.2);
+
+}
+.cardrevert{
+  background: #111;
+  box-shadow: 0 8px 16px 0 rgba(19, 251, 154, 0.2);
+
+}
 
 
 .sidenav {
@@ -69,7 +100,7 @@ hr{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #151515;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -94,10 +125,22 @@ hr{
   font-size: 36px;
   margin-left: 50px;
 }
+#toggle{
+  float: right;
+    font-size: 18px;
+    margin-top: -40px;
+    margin-right: -10px;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+  
+}
+@media screen and (min-width:600px){
+  .toggle{
+    margin-right: 0px
+  }
 }
 </style>
 </head>
@@ -110,17 +153,20 @@ hr{
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#head" class="links">classes</a>
-      <a href="#classes" class="links">current class</a>
+      <a href="#classes" class="links">Datesheet</a>
       <a href="#subjects" class="links">Teachers</a>
-      <a href="https://vanshkapoor.github.io/" target="_blank" class="links">Contact</a>
+      <!-- <a href="https://vanshkapoor.github.io/" target="_blank" class="links">Contact</a> -->
+      
   </div>
   
   <div class="head mt-4 mb-2" id="head">
     <div class="container">
       <span style="float:left ; font-size:30px ; cursor:pointer" onclick="openNav()">&#9776;</span>
-      <h2 class="text-center">ClassRoom Locator</h2>
-    <p class=" text-center mt-4 mb-3">for CSE evening 2nd year</p>
+      <h2 class="text-center">ClassRoom Locator 
+      </h2>
+      <p class="toggle" id="toggle"><i class="fas fa-sun"></i></p>
     </div>
+    <p class=" text-center mt-4 mb-3">for CSE evening 2nd year</p>
   </div>
 
 
@@ -169,14 +215,13 @@ hr{
 
 <div class="current mt-5 mb-5">
   <div class="container">
-    <h3 class=" text-center mb-4">Current Class</h3>
-    <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb" onclick="currentclass()">Current Class</button>
-    
+    <h3 class=" text-center mb-4">DATE-SHEET</h3>
+    <!-- <button type="button" class=" mx-auto  btn btn-outline-dark btn-lg btn-block button cb" onclick="currentclass()">Current Class</button> -->
+    <h2 class="text-muted text-center">none still</h2>
     <div id="classes">
       <div class="container">
         <div class="row">
             <div class="mx-auto " id="getroom">
-                <!-- classes will be added here -->
             </div>      
         </div>
       </div>
@@ -210,6 +255,7 @@ hr{
                   <h5 class="card-title">COA</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Mr. Rajat Gupta </h6>
                   <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                  <p class="card-text"><strong>Book Recomm. : </strong>A block • 2nd floor</p>
                 </div>
             </div>
         </div>
@@ -219,6 +265,7 @@ hr{
                   <h5 class="card-title">DBMS</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Mr. Varun Srivastav </h6>
                   <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                  <p class="card-text"><strong>Book Recomm. : </strong>A block • 2nd floor</p>
                 </div>
             </div>
         </div>
@@ -229,6 +276,7 @@ hr{
                   <h5 class="card-title">TOC</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Miss Sakshi ma'am </h6>
                   <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                  <p class="card-text"><strong>Book Recomm. : </strong>A block • 2nd floor</p>
                 </div>
             </div>
         </div>
@@ -238,6 +286,7 @@ hr{
                   <h5 class="card-title">OOPS</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Dr. Amrit </h6>
                   <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                  <p class="card-text"><strong>Book Recomm. : </strong>A block • 2nd floor</p>
                 </div>
             </div>
         </div>
@@ -247,6 +296,7 @@ hr{
                   <h5 class="card-title">Communication System</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Miss sakshi  </h6>
                   <p class="card-text"><strong>Room : </strong>A block • 2nd floor</p>
+                  <p class="card-text"><strong>Book Recomm. : </strong>A block • 2nd floor</p>
                 </div>
             </div>
         </div>
@@ -445,7 +495,43 @@ function getcurrentclass(room = currentclass())
 
 }
 
+let flag=0;//let 0 be for day and 1 for night
+document.getElementById("toggle").addEventListener("click",function(){
+  if(flag == 0){
+    document.body.classList.add("revert");
+    var inputs = document.querySelectorAll("select")
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].classList.add('inputrevert');
+    }
+    var classes = document.querySelectorAll(".room")
+    for ( i = 0; i < classes.length; i++) {
+      classes[i].classList.add('roomrevert');
+    }
+    var card = document.querySelectorAll(".card")
+    for ( i = 0; i < card.length; i++) {
+      card[i].classList.add('cardrevert');
+    }
+    // document.querySelector("select").classList.add("inputrevert")
+    flag=1;
+  }else{
+    document.body.classList.remove("revert");
+    
+    var inputs = document.querySelectorAll("select")
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].classList.remove('inputrevert');
+    }
 
+    var classes = document.querySelectorAll(".room")
+    for ( i = 0; i < classes.length; i++) {
+      classes[i].classList.remove('roomrevert');
+    }
+    var card = document.querySelectorAll(".card")
+    for ( i = 0; i < card.length; i++) {
+      card[i].classList.remove('cardrevert');
+    }
+    flag=0;
+  }
+})
 
 
 </script>
