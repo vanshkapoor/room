@@ -320,40 +320,40 @@ hr{
 <script>
   var classes = [
     [
-    ["P1 DC C302","T2 CS C102"],
-    ["T1 JP A308","T2 SE C303"],0,
-    "DC B102","CS B102",
-    "SE B101",
-    "CS B101",
-    ["P1 ADA A102","P2 SE A104","P3 DC C302"],
-    ["P1 ADA A102","P2 SE A104","P3 DC C302"],     
+    ["P1 - DC - C302","T2 - CS - C102"],
+    ["T1 - JP A308","T2 - SE - C303"],0,
+    "DC - B102","CS - B102",
+    "CS - B101",
+    "SE - B101",
+    ["P1 - ADA - A102","P2 - SE - A104","P3 - DC - C302"],
+    ["P1 - ADA - A102","P2 - SE - A104" ,"P3 - DC - C302 "], 
      ],
     
     [
-    ["P2 ADA A103","P3 JP A107"],
-    ["P2 ADA A103","P3 JP A107"],0,
-    "JP B203","IM B202","DC B202",
-    "ADA C301",0,0
+    ["P2 - ADA - A103","P3 - JP - A107"],
+    ["P2 - ADA - A103","P3 - JP - A107"],0,
+    "JP - B203","IM - B202","DC - B202",
+    "ADA - C301",0,0
      ],
     
     [
-    ["P1 JP A107","P3 ADA A102"],
-    ["P1 JP A107","P3 ADA A102"],
-    "IM B301",0,"ADA B202","SE B202","CS B202"
-    ["P2 JP A107","P3 SE A104"],
-    ["P2 JP A107","P3 SE A104"],
+    "P1 - JP - A107",
+    ["P1 - JP - A107","T2 - ADA - A102"],
+    "IM - B302",0,"ADA - B202","SE - B202",
+    ["P2 - JP - A107","P3 - SE - A104"],
+    ["P2 - JP - A107","P3 - SE - A104"],0
     ],
 
     [
-    ["P1 SE A104","P2 DC C302"],
-    ["P1 SE A104","P2 DC C302"],
-    "JP B302",0,"ADA B102",
-    ["T1 DC B304","T2 JP B102"],"CS B102","DC B102","SE B102"    
+    ["P1 - SE - A104","P2 - DC - C302"],
+    ["P1 - SE - A104","P2 - DC - C302"],
+    "JP - B302",0,"ADA - B102",
+    ["T1 - DC - B304","T2 - JP - B102"],"CS - B102","DC - B102","T1 -SE - B102"    
     ],
 
     [
-    ["CS C103","JP B102"],["CS C103","JP B102"],"JP B102",0,"IM B102",
-    ["T1 ADA B104","T2 DC B102"],"SE B102",
+    ["T1 - CS - C103","P3 - ADA - A102"],["T1 - CS - C103","P3 - ADA - A102"],"JP - B102",0,"IM - B102",
+    ["T1 - ADA - B104","T2 - DC - B102"],"SE - B102",
     0,0,
     ]
   ];
@@ -418,7 +418,7 @@ function getClass(room = getRoom()){
   if(typeof(room) == "number"){
 
     var div = document.createElement('div');
-    div.textContent = "Bss bhi krdo ab";
+    div.textContent = "Take a BREAK ⚡";
     div.setAttribute('class', 'room');
     document.getElementById("rooms").appendChild(div);
     document.getElementById("classes").style.visibility = 'visible';
